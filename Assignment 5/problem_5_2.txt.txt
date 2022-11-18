@@ -1,0 +1,6 @@
+V = S N
+T = a b
+start = S
+S -> aN
+N -> epsilon
+N -> aaNb
