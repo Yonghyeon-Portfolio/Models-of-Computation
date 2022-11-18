@@ -1,0 +1,10 @@
+conj : ∧
+disj : ∨
+neg : ¬
+imp : →
+biimp : ↔
+xor : ⊕
+top : ⊤
+bot : ⊥
+uni : ∪
+int : ∩
