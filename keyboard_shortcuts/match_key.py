@@ -37,4 +37,4 @@ def write_if_match(pairs, log):
     
     ctrl = get_controller()
     ctrl.type("\b" * (len(match) + len(end_character)))
-    ctrl.type(pair + " ")
+    ctrl.type(pair)

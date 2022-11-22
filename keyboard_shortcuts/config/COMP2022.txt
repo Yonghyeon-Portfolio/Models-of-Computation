@@ -8,3 +8,6 @@ top : ⊤
 bot : ⊥
 uni : ∪
 int : ∩
+prov : ⊢
+eq : ⊨
+3eq: ≡
