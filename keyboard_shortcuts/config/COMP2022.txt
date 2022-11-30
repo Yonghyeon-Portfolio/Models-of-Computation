@@ -1,13 +1,32 @@
-conj : ∧
-disj : ∨
-neg : ¬
-imp : →
-biimp : ↔
-xor : ⊕
-top : ⊤
-bot : ⊥
-uni : ∪
-int : ∩
-prov : ⊢
-eq : ⊨
-3eq: ≡
+;regular languages
+concat' : o
+alph' : Σ
+eps' : ε
+empty' : ∅
+tran' : δ
+
+;set operators
+uni' : ∪
+int' : ∩
+subset_eq' : ⊆
+element' : ∈
+
+; propositional logic
+conj' : ∧
+disj' : ∨
+neg' : ¬
+imp' : →
+biimp' : ↔
+xor' : ⊕
+top' : ⊤
+bot' : ⊥
+syn_eq' : ⊢
+sem_eq' : ⊨
+eq' : ≡
+
+;CNF
+tick' : ՛
+
+; predicate logic
+al' : ∀
+som' : ∃

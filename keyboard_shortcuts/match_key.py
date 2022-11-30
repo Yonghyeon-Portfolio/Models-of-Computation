@@ -1,7 +1,6 @@
 from record_key import get_controller
 import time
 
-end_character = " "
 
 def read_log():
     with open("log.txt", "r", encoding = "utf-8") as f:
@@ -24,17 +23,18 @@ def get_keywords(config_f):
             
 def write_if_match(pairs, log):
     match = None
-    match_len = 0
     pair = None
-    for p, val in pairs.items():
-        if log.endswith(p + end_character) and len(p) > match_len:
-            match = p
-            match_len = len(p)
-            pair = val
+    for word, convert in pairs.items():
+        compare_str = "".join(log[-len(word):])
+        if word != compare_str:
+            continue
+        match = word
+        pair = convert
+        break   
     
     if match is None:
         return
     
     ctrl = get_controller()
-    ctrl.type("\b" * (len(match) + len(end_character)))
+    ctrl.type("\b" * len(match))
     ctrl.type(pair)
