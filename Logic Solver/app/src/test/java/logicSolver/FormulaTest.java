@@ -3,7 +3,6 @@ package logicSolver;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class FormulaTest {
     /*
      * When a formula is initialised,
@@ -14,7 +13,7 @@ public class FormulaTest {
     @Test
     public void case1(){
         Formula F = new Formula("p  ∧ q");
-        System.err.println(F);
+        // System.err.println(F);
         assertEquals(F.expr, "(p∧q)");
         assertArrayEquals(F.atoms, new char[] {'p', 'q'});
     }
@@ -22,49 +21,56 @@ public class FormulaTest {
     @Test
     public void case2(){
         Formula F = new Formula("¬(p ∧ p) ∨ ¬p ");
-        System.err.println(F);
+        // System.err.println(F);
         assertEquals(F.expr, "(¬(p∧p)∨¬p)");
+        assertArrayEquals(F.atoms, new char[] {'p'});
     }
     
-    // String[] testcases = {
-    //     "p ∧ q",
-    //     "(p ∧ q)",
-    //     "¬(p ∧ q)",
-    //     "¬p ∨ ¬(q ∨ r)",
-    //     "(¬p ∨ q) ∨ r",
-    //     "¬(p ∧ p) ∨ ¬p "
-    // };
+    @Test
+    public void case3(){
+        Formula F = new Formula(" ¬( p ∧  q)");
+        // System.err.println(F);
+        assertEquals(F.expr, "¬(p∧q)");
+        assertArrayEquals(F.atoms, new char[] {'p', 'q'});
+    }
+
+    @Test
+    public void case4(){
+        Formula F = new Formula("¬r ∨ ¬(q ∨ p)");
+        // System.err.println(F);
+        assertEquals(F.expr, "(¬r∨¬(q∨p))");
+        assertArrayEquals(F.atoms, new char[] {'p', 'q', 'r'});
+    }
+
+    @Test
+    public void assignmentCheck(){
+        Formula F = new Formula("p");
+        F.listAllAtoms(F.expr);
+    }
 
     // @Test
-    // public void addingOuterMostParenthesis(){
-    //     String[] expected = {
-    //         "(p ∧ q)",
-    //         "(p ∧ q)",
-    //         "¬(p ∧ q)",
-    //         "(¬p ∨ ¬(q ∨ r))",
-    //         "((¬p ∨ q) ∨ r)",
-    //         "(¬(p ∧ p) ∨ ¬p)"
-    //     };
-
-    //     for (int i = 0; i < testcases.length; i++){
-    //         Formula F = new Formula(testcases[i]);
-    //         assertEquals(F.expr, expected[i]);
-    //     }
+    // public void tv1(){
+    //     Formula F = new Formula("p");
+    //     boolean a = F.truthVal(0);
+    //     System.err.println(a);
     // }
 
     // @Test
-    // public void checkAtomicFormulas(){
-        
-    // List<char[]> expected = new ArrayList<>();
-    // expected.add(new char[] {'p', 'q'});
-    // expected.add(new char[] {'p', 'q'});
-    // expected.add(new char[] {'p', 'q'});
-    // expected.add(new char[] {'p', 'q', 'r'});
-    // expected.add(new char[] {'p', 'q', 'r'});
-
-    // for (int i = 0; i < expected.size(); i++){
-    //     Formula F = new Formula(testcases[i]);
-    //     assertArrayEquals(expected.get(i), F.atoms);
+    // public void parsing1A(){
+    //     String f = "p";
+    //     String[] test = Formula.nextLvlParenthesis(f);
+    //     assertArrayEquals(test, new String[] {"("});
     // }
+    // @Test
+    // public void parsing1B(){
+    //     String f1 = " ¬( p ∧  q)";
+    //     String[] test1 = Formula.nextLvlParenthesis(f1);
+    //     assertArrayEquals(test1, new String[] {"(p∧q)"});
+    // }
+    // @Test
+    // public void parsing1C(){
+    //     String f1 = " ¬( p ∧  q)";
+    //     String[] test1 = Formula.nextLvlParenthesis(f1);
+    //     assertArrayEquals(test1, new String[] {"(p∧q)"});
     // }
 }

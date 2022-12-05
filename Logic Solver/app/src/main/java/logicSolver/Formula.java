@@ -4,6 +4,7 @@ import java.util.*;
 public class Formula {
     public String expr;
     public char[] atoms;
+    public List<HashMap<Character, Boolean>> assignments;
 
     private char[] consideredAtom = new char[] {
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 
@@ -82,8 +83,16 @@ public class Formula {
             Atoms[i] = atoms.get(i);
         
         return Atoms;
-    }
+    } 
 
-    
+    public List<HashMap<Character, Boolean>> listAssignments(){
+        int n = atoms.length;
+        int m = (int)Math.pow(2, n);
+        System.err.println(m);
+        for (int i=0; i < m; i++){
+            int a = 1+1;
+        }
+        return null;
+    }
 
 }
